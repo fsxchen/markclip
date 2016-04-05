@@ -50,10 +50,8 @@ module.exports = Markclip =
     return if FILE_EXT.indexOf(filePathObj.ext) < 0
 
     saveType = atom.config.get('markclip.saveType')
-    atom.notifications.addWarning(saveType+"XXXXXXx")
     # IF: save as a file
     # atom.notifications.addWarning("aaa")
-    saveType = 'qiniu'
     atom.notifications.addWarning(saveType)
     if (saveType == SAVE_TYPE_FILE_IN_FOLDER || saveType == SAVE_TYPE_FILE)
       imgFileDir = filePathObj.dir
@@ -69,7 +67,6 @@ module.exports = Markclip =
     else if saveType="qiniu"
       uploaderName = atom.config.get('markclip.uploader')
       uploaderPkg = atom.packages.getLoadedPackage(uploaderName)
-      atom.notifications.addWarning(uploaderPkg+ "xx")
       if not uploaderPkg
         atom.notifications.addWarning('markdown-assistant: uploader not found',{
           detail: "package \"#{uploaderName}\" not found!" +
@@ -84,8 +81,6 @@ module.exports = Markclip =
         uploaderIns = uploader.instance()
 
       try
-
-
         uploadFn = (callback)->
           uploaderIns.upload(img.toPng(), 'png', callback)
 
