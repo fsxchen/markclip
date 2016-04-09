@@ -52,6 +52,7 @@ module.exports = Markclip =
     saveType = atom.config.get('markclip.saveType')
     # IF: save as a file
     # atom.notifications.addWarning("aaa")
+    saveType = "qiniu"
     atom.notifications.addWarning(saveType)
     if (saveType == SAVE_TYPE_FILE_IN_FOLDER || saveType == SAVE_TYPE_FILE)
       imgFileDir = filePathObj.dir
