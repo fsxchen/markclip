@@ -1,5 +1,4 @@
 insertImageViewModule = require "./insert-image-view"
-# uploader = require "qiniu"
 
 fs = require 'fs'
 path = require 'path'
@@ -68,6 +67,7 @@ module.exports = Markclip =
     else if saveType="qiniu"
       uploaderName = atom.config.get('markclip.uploader')
       uploaderPkg = atom.packages.getLoadedPackage(uploaderName)
+      atom.notifications.addWarning(uploaderName)
       if not uploaderPkg
         atom.notifications.addWarning('markdown-assistant: uploader not found',{
           detail: "package \"#{uploaderName}\" not found!" +
@@ -75,8 +75,8 @@ module.exports = Markclip =
             "\ninstall this package OR change uploader in markdown-assistant's settings"
         })
         return
-
       uploader = uploaderPkg?.mainModule
+
       if not uploader
         uploader = require(uploaderPkg.path)
         uploaderIns = uploader.instance()

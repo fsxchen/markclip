@@ -1,7 +1,7 @@
 {
   "name": "markclip",
   "main": "./lib/markclip",
-  "version": "0.2.0",
+  "version": "0.2.3",
   "description": "An Atom package to insert image form clipboard into markdown file",
   "keywords": [
     "atom",
@@ -31,8 +31,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": {
-    "name": "Hans Chan",
-    "email": "icsbun@gmail.com"
+    "name": "Arron Chen",
+    "email": "fsxchen@gmail.com"
   },
   "readme": "# markclip package\n\nAn Atom package to insert image form clipboard into markdown file.\n\n## Usage\n\nCopy some image into clipboard and key `cmd + v` in markdown file.\n\n## Config\n\n### saveType\n\n- **base64**\n\nInsert base64 string like\n\n```\n![](data:image/png;base64,...)\n```\n\n- **file**\n\nCreate an image file in the same directory of your markdown file, then insert into markdown with a md5 file name.\n\n```\n![](image-md5-name.png)\n```\n\n- **file in folder**\n\nCreate a directory with the same name of the current markdown file. Put the image in the directory, then insert into markdown with a md5 file name.\n\n```\n![](markdown-file-name/image-md5-name.png)\n```\n",
   "readmeFilename": "README.md",
